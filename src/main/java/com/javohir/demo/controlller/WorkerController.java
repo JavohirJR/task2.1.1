@@ -57,7 +57,7 @@ public class WorkerController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editOne(@PathVariable Integer id, @RequestBody WorkerDTO workerDTO) {
+    public ResponseEntity<?> editOne(@Valid @PathVariable Integer id, @RequestBody WorkerDTO workerDTO) {
         ApiResponse apiResponse = workerService.editOne(id, workerDTO);
         if (apiResponse.isStatus()) {
             return ResponseEntity.status(HttpStatus.OK).body(apiResponse);

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -16,8 +17,10 @@ public class Company {
     private Integer id;
 
     @Column(nullable = false,unique = true)
+    @NotNull(message = "Fill the blank")
     private String corpName;
 
+    @NotNull(message = "Fill the blank")
     @Column(nullable = false)
     private String directorName;
 

@@ -57,7 +57,7 @@ public class CompanyController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editOne(@PathVariable Integer id, @RequestBody CompanyDTO companyDTO) {
+    public ResponseEntity<?> editOne(@Valid @PathVariable Integer id, @RequestBody CompanyDTO companyDTO) {
         ApiResponse apiResponse = companyService.editOne(id, companyDTO);
         if (apiResponse.isStatus()) {
             return ResponseEntity.status(HttpStatus.OK).body(apiResponse);

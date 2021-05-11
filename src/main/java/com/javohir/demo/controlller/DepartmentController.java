@@ -57,7 +57,7 @@ public class DepartmentController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> editOne(@PathVariable Integer id, @RequestBody DepartmentDTO departmentDTO) {
+    public ResponseEntity<?> editOne(@Valid @PathVariable Integer id, @RequestBody DepartmentDTO departmentDTO) {
         ApiResponse apiResponse = departmentService.editOne(id, departmentDTO);
         if (apiResponse.isStatus()) {
             return ResponseEntity.status(HttpStatus.OK).body(apiResponse);

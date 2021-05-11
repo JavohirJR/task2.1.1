@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -17,10 +18,13 @@ public class Worker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+
     @Column(nullable = false)
+    @NotNull(message = "Fill the blank")
     private String fullName;
 
     @Column(nullable = false, unique = true)
+    @NotNull(message = "Fill the blank")
     private String phoneNumber;
 
     @OneToOne
